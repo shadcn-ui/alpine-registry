@@ -32,7 +32,7 @@ To see examples of how to use authentication with the registry, see the [API Rou
 
 ## Development
 
-Clone the repository, then install the dependencies and run the development server.
+Clone the repository, clone the .env.example and rename it to .env.local, then install the dependencies and run the development server.
 
 ```bash
 pnpm install
