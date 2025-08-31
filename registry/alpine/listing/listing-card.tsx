@@ -26,7 +26,7 @@ export function ListingCard({
   return (
     <Card
       className={cn(
-        "w-full p-0 bg-transparent aspect-square border-0 gap-4 min-w-0",
+        "w-full p-0 bg-transparent border-0 gap-4 min-w-0",
         className
       )}
     >
