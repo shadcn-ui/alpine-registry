@@ -4,9 +4,7 @@
   "type": "registry:item",
   "title": "Marketing Template",
   "description": "A marketing template.",
-  "registryDependencies": [
-    "@alpine/design-system"
-  ],
+  "registryDependencies": ["@alpine/design-system"],
   "files": [
     {
       "path": "registry/alpine/templates/marketing/page.tsx",
