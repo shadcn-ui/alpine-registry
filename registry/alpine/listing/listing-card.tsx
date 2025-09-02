@@ -26,7 +26,7 @@ export function ListingCard({
   return (
     <Card
       className={cn(
-        "w-full p-0 bg-transparent aspect-square border-0 gap-4 min-w-0",
+        "aspect-square w-full min-w-0 gap-4 border-0 bg-transparent p-0",
         className
       )}
     >
@@ -36,13 +36,13 @@ export function ListingCard({
           alt={name}
           width={600}
           height={600}
-          className="aspect-square rounded-lg w-full object-cover"
+          className="aspect-square w-full rounded-lg object-cover"
         />
       </CardContent>
-      <CardHeader className="p-0 gap-0">
-        <CardTitle className="flex items-center gap-2 text-sm tracking-tight font-medium">
+      <CardHeader className="gap-0 p-0">
+        <CardTitle className="flex items-center gap-2 text-sm font-medium tracking-tight">
           {name}{" "}
-          <div className="flex items-center gap-1 ml-auto">
+          <div className="ml-auto flex items-center gap-1">
             <StarIcon className="fill-foreground size-3" /> {rating} (
             {reviewCount})
           </div>

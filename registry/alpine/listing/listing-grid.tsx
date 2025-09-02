@@ -19,7 +19,7 @@ export function ListingGrid({
   className?: string
 }) {
   return (
-    <div className="flex flex-col gap-6 min-w-0 w-full">
+    <div className="flex w-full min-w-0 flex-col gap-6">
       {heading || subheading ? (
         <div className="flex flex-col gap-1">
           <h2 className="text-2xl font-bold tracking-tighter">{heading}</h2>
@@ -28,7 +28,7 @@ export function ListingGrid({
       ) : null}
       <div
         className={cn(
-          "grid sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full",
+          "grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-4",
           className
         )}
       >

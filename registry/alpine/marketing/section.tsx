@@ -12,12 +12,12 @@ export function Section({
 }) {
   return (
     <section
-      className={cn("py-10 lg:py-24 gap-6 w-full", className)}
+      className={cn("w-full gap-6 py-10 lg:py-24", className)}
       {...props}
     >
-      <div className="container mx-auto flex flex-col gap-8 px-4 w-full">
-        <div className="flex flex-col items-center gap-2 max-w-xl text-center mx-auto text-balance">
-          <h2 className="text-3xl tracking-tighter lg:text-5xl xl:text-6xl font-bold">
+      <div className="container mx-auto flex w-full flex-col gap-8 px-4">
+        <div className="mx-auto flex max-w-xl flex-col items-center gap-2 text-center text-balance">
+          <h2 className="text-3xl font-bold tracking-tighter lg:text-5xl xl:text-6xl">
             {heading}
           </h2>
           <p className="text-muted-foreground text-balance lg:text-xl">

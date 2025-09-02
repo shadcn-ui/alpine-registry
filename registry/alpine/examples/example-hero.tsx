@@ -8,7 +8,7 @@ export function ExampleHero() {
       subheading="Now you can hire a co-host to help. Plus, get more ways to make hosting and planning trips even easier."
       imageUrl="https://images.unsplash.com/photo-1697807646004-31ae73a1a625"
     >
-      <div className="flex gap-2 mt-2">
+      <div className="mt-2 flex gap-2">
         <Button size="lg">Learn more</Button>
         <Button size="lg" variant="outline">
           Get started
