@@ -47,6 +47,8 @@
 }
 
 @theme inline {
+  --font-geist-mono: var(--font-geist-mono);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-ring: var(--ring);
@@ -73,9 +75,14 @@
 
 @layer base {
   * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply selection:bg-primary selection:text-primary-foreground bg-background text-foreground;
+  }
+  code {
+    @apply font-geist-mono text-[13px] leading-tight;
   }
 }
