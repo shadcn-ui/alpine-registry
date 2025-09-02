@@ -1,6 +1,7 @@
 "use client"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { cn } from "@/lib/utils"
 import { Button } from "@/registry/alpine/ui/button"
 import { CheckIcon } from "lucide-react"
 import { registryItemSchema } from "shadcn/schema"
@@ -18,16 +19,31 @@ export function AddCommand({
     <Button
       variant="outline"
       size="sm"
-      className="rounded-sm !pl-2"
+      className={cn(
+        "rounded-sm !pl-2",
+        isCopied &&
+          "text-primary !bg-primary/15 border-primary/25 dark:!bg-primary/15 dark:border-primary/25 dark:text-green-500"
+      )}
       onClick={() => {
         copyToClipboard(`npx shadcn@latest add @alpine/${registryItem.name}`)
         toast.success(`npx command copied to clipboard`)
       }}
     >
-      {isCopied ? (
-        <CheckIcon />
-      ) : (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+      <div className="relative size-4">
+        <CheckIcon
+          className={cn(
+            "text-primary size-4 transition-transform dark:text-green-500",
+            !isCopied && "scale-0"
+          )}
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 256 256"
+          className={cn(
+            "absolute inset-0 size-4 transition-transform",
+            isCopied && "scale-0"
+          )}
+        >
           <rect width="256" height="256" fill="none"></rect>
           <line
             x1="208"
@@ -52,7 +68,7 @@ export function AddCommand({
             strokeWidth="32"
           ></line>
         </svg>
-      )}
+      </div>
       {`@alpine/${registryItem.name}`}
     </Button>
   )
