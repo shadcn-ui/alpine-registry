@@ -15,20 +15,20 @@ export function Hero({
   return (
     <section className={cn("w-full py-8 md:py-16", className)}>
       <div className="container mx-auto px-4">
-        <div className="relative rounded-lg overflow-hidden">
+        <div className="relative overflow-hidden rounded-lg">
           <Image
             src={imageUrl}
             alt={heading}
             width={1200}
             height={450}
-            className="aspect-square md:aspect-[120/45] w-full object-cover rounded-lg"
+            className="aspect-square w-full rounded-lg object-cover md:aspect-[120/45]"
           />
-          <div className="py-8 md:absolute md:inset-0 md:bg-black/50 flex items-center justify-center">
-            <div className="flex flex-col items-center gap-2 max-w-xl text-center mx-auto text-balance md:text-white">
-              <h2 className="text-3xl tracking-tighter lg:text-5xl xl:text-6xl font-bold text-shadow">
+          <div className="flex items-center justify-center py-8 md:absolute md:inset-0 md:bg-black/50">
+            <div className="mx-auto flex max-w-xl flex-col items-center gap-2 text-center text-balance md:text-white">
+              <h2 className="text-shadow text-3xl font-bold tracking-tighter lg:text-5xl xl:text-6xl">
                 {heading}
               </h2>
-              <p className="text-balance text-shadow lg:text-xl">
+              <p className="text-shadow text-balance lg:text-xl">
                 {subheading}
               </p>
               {children}

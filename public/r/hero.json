@@ -4,11 +4,24 @@
   "type": "registry:component",
   "title": "Hero",
   "description": "A hero component.",
+  "dependencies": ["clsx", "tailwind-merge"],
   "files": [
     {
       "path": "registry/alpine/marketing/hero.tsx",
-      "content": "import { cn } from \"@/lib/utils\"\nimport Image from \"next/image\"\n\nexport function Hero({\n  heading,\n  subheading,\n  imageUrl,\n  className,\n  children,\n}: {\n  heading: string\n  subheading: string\n  imageUrl: string\n} & React.ComponentProps<\"section\">) {\n  return (\n    <section className={cn(\"w-full py-8 md:py-16\", className)}>\n      <div className=\"container mx-auto px-4\">\n        <div className=\"relative rounded-lg overflow-hidden\">\n          <Image\n            src={imageUrl}\n            alt={heading}\n            width={1200}\n            height={450}\n            className=\"aspect-square md:aspect-[120/45] w-full object-cover rounded-lg\"\n          />\n          <div className=\"py-8 md:absolute md:inset-0 md:bg-black/50 flex items-center justify-center\">\n            <div className=\"flex flex-col items-center gap-2 max-w-xl text-center mx-auto text-balance md:text-white\">\n              <h2 className=\"text-3xl tracking-tighter lg:text-5xl xl:text-6xl font-bold text-shadow\">\n                {heading}\n              </h2>\n              <p className=\"text-balance text-shadow lg:text-xl\">\n                {subheading}\n              </p>\n              {children}\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "content": "import { cn } from \"@/lib/utils\"\r\nimport Image from \"next/image\"\r\n\r\nexport function Hero({\r\n  heading,\r\n  subheading,\r\n  imageUrl,\r\n  className,\r\n  children,\r\n}: {\r\n  heading: string\r\n  subheading: string\r\n  imageUrl: string\r\n} & React.ComponentProps<\"section\">) {\r\n  return (\r\n    <section className={cn(\"w-full py-8 md:py-16\", className)}>\r\n      <div className=\"container mx-auto px-4\">\r\n        <div className=\"relative rounded-lg overflow-hidden\">\r\n          <Image\r\n            src={imageUrl}\r\n            alt={heading}\r\n            width={1200}\r\n            height={450}\r\n            className=\"aspect-square md:aspect-[120/45] w-full object-cover rounded-lg\"\r\n          />\r\n          <div className=\"py-8 md:absolute md:inset-0 md:bg-black/50 flex items-center justify-center\">\r\n            <div className=\"flex flex-col items-center gap-2 max-w-xl text-center mx-auto text-balance md:text-white\">\r\n              <h2 className=\"text-3xl tracking-tighter lg:text-5xl xl:text-6xl font-bold text-shadow\">\r\n                {heading}\r\n              </h2>\r\n              <p className=\"text-balance text-shadow lg:text-xl\">\r\n                {subheading}\r\n              </p>\r\n              {children}\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </section>\r\n  )\r\n}\r\n",
       "type": "registry:component"
+    },
+    {
+      "path": "registry\\alpine\\marketing\\hero.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\r\nimport Image from \"next/image\"\r\n\r\nexport function Hero({\r\n  heading,\r\n  subheading,\r\n  imageUrl,\r\n  className,\r\n  children,\r\n}: {\r\n  heading: string\r\n  subheading: string\r\n  imageUrl: string\r\n} & React.ComponentProps<\"section\">) {\r\n  return (\r\n    <section className={cn(\"w-full py-8 md:py-16\", className)}>\r\n      <div className=\"container mx-auto px-4\">\r\n        <div className=\"relative rounded-lg overflow-hidden\">\r\n          <Image\r\n            src={imageUrl}\r\n            alt={heading}\r\n            width={1200}\r\n            height={450}\r\n            className=\"aspect-square md:aspect-[120/45] w-full object-cover rounded-lg\"\r\n          />\r\n          <div className=\"py-8 md:absolute md:inset-0 md:bg-black/50 flex items-center justify-center\">\r\n            <div className=\"flex flex-col items-center gap-2 max-w-xl text-center mx-auto text-balance md:text-white\">\r\n              <h2 className=\"text-3xl tracking-tighter lg:text-5xl xl:text-6xl font-bold text-shadow\">\r\n                {heading}\r\n              </h2>\r\n              <p className=\"text-balance text-shadow lg:text-xl\">\r\n                {subheading}\r\n              </p>\r\n              {children}\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </section>\r\n  )\r\n}\r\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "lib\\utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n\r\nexport function getRegistryItemUrl(name: string) {\r\n  return `${process.env.NEXT_PUBLIC_BASE_URL}/r/${name}.json`\r\n}\r\n",
+      "type": "registry:lib",
+      "target": ""
     }
   ]
 }

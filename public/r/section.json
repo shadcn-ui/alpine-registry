@@ -4,11 +4,24 @@
   "type": "registry:component",
   "title": "Section",
   "description": "A section component.",
+  "dependencies": ["clsx", "tailwind-merge"],
   "files": [
     {
       "path": "registry/alpine/marketing/section.tsx",
-      "content": "import { cn } from \"@/lib/utils\"\n\nexport function Section({\n  heading,\n  subheading,\n  children,\n  className,\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  heading: string\n  subheading: string\n}) {\n  return (\n    <section\n      className={cn(\"py-10 lg:py-24 gap-6 w-full\", className)}\n      {...props}\n    >\n      <div className=\"container mx-auto flex flex-col gap-8 px-4 w-full\">\n        <div className=\"flex flex-col items-center gap-2 max-w-xl text-center mx-auto text-balance\">\n          <h2 className=\"text-3xl tracking-tighter lg:text-5xl xl:text-6xl font-bold\">\n            {heading}\n          </h2>\n          <p className=\"text-muted-foreground text-balance lg:text-xl\">\n            {subheading}\n          </p>\n        </div>\n        {children}\n      </div>\n    </section>\n  )\n}\n",
+      "content": "import { cn } from \"@/lib/utils\"\r\n\r\nexport function Section({\r\n  heading,\r\n  subheading,\r\n  children,\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<\"div\"> & {\r\n  heading: string\r\n  subheading: string\r\n}) {\r\n  return (\r\n    <section\r\n      className={cn(\"py-10 lg:py-24 gap-6 w-full\", className)}\r\n      {...props}\r\n    >\r\n      <div className=\"container mx-auto flex flex-col gap-8 px-4 w-full\">\r\n        <div className=\"flex flex-col items-center gap-2 max-w-xl text-center mx-auto text-balance\">\r\n          <h2 className=\"text-3xl tracking-tighter lg:text-5xl xl:text-6xl font-bold\">\r\n            {heading}\r\n          </h2>\r\n          <p className=\"text-muted-foreground text-balance lg:text-xl\">\r\n            {subheading}\r\n          </p>\r\n        </div>\r\n        {children}\r\n      </div>\r\n    </section>\r\n  )\r\n}\r\n",
       "type": "registry:component"
+    },
+    {
+      "path": "registry\\alpine\\marketing\\section.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\r\n\r\nexport function Section({\r\n  heading,\r\n  subheading,\r\n  children,\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<\"div\"> & {\r\n  heading: string\r\n  subheading: string\r\n}) {\r\n  return (\r\n    <section\r\n      className={cn(\"py-10 lg:py-24 gap-6 w-full\", className)}\r\n      {...props}\r\n    >\r\n      <div className=\"container mx-auto flex flex-col gap-8 px-4 w-full\">\r\n        <div className=\"flex flex-col items-center gap-2 max-w-xl text-center mx-auto text-balance\">\r\n          <h2 className=\"text-3xl tracking-tighter lg:text-5xl xl:text-6xl font-bold\">\r\n            {heading}\r\n          </h2>\r\n          <p className=\"text-muted-foreground text-balance lg:text-xl\">\r\n            {subheading}\r\n          </p>\r\n        </div>\r\n        {children}\r\n      </div>\r\n    </section>\r\n  )\r\n}\r\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "lib\\utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n\r\nexport function getRegistryItemUrl(name: string) {\r\n  return `${process.env.NEXT_PUBLIC_BASE_URL}/r/${name}.json`\r\n}\r\n",
+      "type": "registry:lib",
+      "target": ""
     }
   ]
 }

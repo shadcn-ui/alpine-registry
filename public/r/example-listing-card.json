@@ -4,11 +4,36 @@
   "type": "registry:block",
   "title": "Example Listing Card",
   "description": "An example listing card.",
+  "dependencies": ["clsx", "tailwind-merge", "lucide-react"],
   "files": [
     {
       "path": "registry/alpine/examples/example-listing-card.tsx",
-      "content": "import { ListingCard } from \"@/registry/alpine/listing/listing-card\"\n\nexport function ExampleListingCard() {\n  return (\n    <ListingCard\n      name=\"Cabin in Thornfield\"\n      location=\"An off Grid Experience\"\n      rating={4.95}\n      reviewCount={261}\n      imageUrl=\"https://images.unsplash.com/photo-1542718610-a1d656d1884c\"\n      className=\"max-w-xs\"\n    />\n  )\n}\n",
+      "content": "import { ListingCard } from \"@/registry/alpine/listing/listing-card\"\r\n\r\nexport function ExampleListingCard() {\r\n  return (\r\n    <ListingCard\r\n      name=\"Cabin in Thornfield\"\r\n      location=\"An off Grid Experience\"\r\n      rating={4.95}\r\n      reviewCount={261}\r\n      imageUrl=\"https://images.unsplash.com/photo-1542718610-a1d656d1884c\"\r\n      className=\"max-w-xs\"\r\n    />\r\n  )\r\n}\r\n",
       "type": "registry:component"
+    },
+    {
+      "path": "registry\\alpine\\examples\\example-listing-card.tsx",
+      "content": "import { ListingCard } from \"@/registry/alpine/listing/listing-card\"\r\n\r\nexport function ExampleListingCard() {\r\n  return (\r\n    <ListingCard\r\n      name=\"Cabin in Thornfield\"\r\n      location=\"An off Grid Experience\"\r\n      rating={4.95}\r\n      reviewCount={261}\r\n      imageUrl=\"https://images.unsplash.com/photo-1542718610-a1d656d1884c\"\r\n      className=\"max-w-xs\"\r\n    />\r\n  )\r\n}\r\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "registry\\alpine\\listing\\listing-card.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\r\nimport {\r\n  Card,\r\n  CardContent,\r\n  CardDescription,\r\n  CardHeader,\r\n  CardTitle,\r\n} from \"@/registry/alpine/ui/card\"\r\nimport { StarIcon } from \"lucide-react\"\r\nimport Image from \"next/image\"\r\n\r\nexport function ListingCard({\r\n  name,\r\n  location,\r\n  imageUrl,\r\n  rating,\r\n  reviewCount,\r\n  className,\r\n}: {\r\n  name: string\r\n  location: string\r\n  imageUrl: string\r\n  rating: number\r\n  reviewCount: number\r\n} & React.ComponentProps<typeof Card>) {\r\n  return (\r\n    <Card\r\n      className={cn(\r\n        \"w-full p-0 bg-transparent aspect-square border-0 gap-4 min-w-0\",\r\n        className\r\n      )}\r\n    >\r\n      <CardContent className=\"p-0\">\r\n        <Image\r\n          src={imageUrl}\r\n          alt={name}\r\n          width={600}\r\n          height={600}\r\n          className=\"aspect-square rounded-lg w-full object-cover\"\r\n        />\r\n      </CardContent>\r\n      <CardHeader className=\"p-0 gap-0\">\r\n        <CardTitle className=\"flex items-center gap-2 text-sm tracking-tight font-medium\">\r\n          {name}{\" \"}\r\n          <div className=\"flex items-center gap-1 ml-auto\">\r\n            <StarIcon className=\"fill-foreground size-3\" /> {rating} (\r\n            {reviewCount})\r\n          </div>\r\n        </CardTitle>\r\n        <CardDescription>{location}</CardDescription>\r\n      </CardHeader>\r\n    </Card>\r\n  )\r\n}\r\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "lib\\utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n\r\nexport function getRegistryItemUrl(name: string) {\r\n  return `${process.env.NEXT_PUBLIC_BASE_URL}/r/${name}.json`\r\n}\r\n",
+      "type": "registry:lib",
+      "target": ""
+    },
+    {
+      "path": "registry\\alpine\\ui\\card.tsx",
+      "content": "import * as React from \"react\"\r\n\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nfunction Card({ className, ...props }: React.ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"card\"\r\n      className={cn(\r\n        \"bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nfunction CardHeader({ className, ...props }: React.ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"card-header\"\r\n      className={cn(\r\n        \"@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nfunction CardTitle({ className, ...props }: React.ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"card-title\"\r\n      className={cn(\r\n        \"leading-none tracking-tight text-lg font-semibold\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nfunction CardDescription({ className, ...props }: React.ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"card-description\"\r\n      className={cn(\"text-muted-foreground text-sm\", className)}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nfunction CardAction({ className, ...props }: React.ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"card-action\"\r\n      className={cn(\r\n        \"col-start-2 row-span-2 row-start-1 self-start justify-self-end\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nfunction CardContent({ className, ...props }: React.ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"card-content\"\r\n      className={cn(\"px-6\", className)}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nfunction CardFooter({ className, ...props }: React.ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"card-footer\"\r\n      className={cn(\"flex items-center px-6 [.border-t]:pt-6\", className)}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nexport {\r\n  Card,\r\n  CardHeader,\r\n  CardFooter,\r\n  CardTitle,\r\n  CardAction,\r\n  CardDescription,\r\n  CardContent,\r\n}\r\n",
+      "type": "registry:ui",
+      "target": ""
     }
   ]
 }

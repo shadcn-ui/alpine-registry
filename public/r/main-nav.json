@@ -4,11 +4,35 @@
   "type": "registry:block",
   "title": "Main Nav",
   "description": "A main navigation component.",
+  "dependencies": [
+    "radix-ui",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
   "files": [
     {
       "path": "registry/alpine/navigation/main-nav.tsx",
-      "content": "import { Button } from \"@/registry/alpine/ui/button\"\nimport Link from \"next/link\"\n\nexport function MainNav() {\n  return (\n    <nav className=\"flex flex-col md:flex-row items-center gap-1\">\n      <Button variant=\"ghost\" size=\"sm\" asChild>\n        <Link href=\"/\">Home</Link>\n      </Button>\n      <Button variant=\"ghost\" size=\"sm\" asChild>\n        <Link href=\"/experiences\">Experiences</Link>\n      </Button>\n      <Button variant=\"ghost\" size=\"sm\" asChild>\n        <Link href=\"/listings\">Listings</Link>\n      </Button>\n      <Button variant=\"ghost\" size=\"sm\" asChild>\n        <Link href=\"/about\">About</Link>\n      </Button>\n      <Button variant=\"ghost\" size=\"sm\" asChild>\n        <Link href=\"/contact\">Contact</Link>\n      </Button>\n    </nav>\n  )\n}\n",
+      "content": "import { Button } from \"@/registry/alpine/ui/button\"\r\nimport Link from \"next/link\"\r\n\r\nexport function MainNav() {\r\n  return (\r\n    <nav className=\"flex flex-col md:flex-row items-center gap-1\">\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/\">Home</Link>\r\n      </Button>\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/experiences\">Experiences</Link>\r\n      </Button>\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/listings\">Listings</Link>\r\n      </Button>\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/about\">About</Link>\r\n      </Button>\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/contact\">Contact</Link>\r\n      </Button>\r\n    </nav>\r\n  )\r\n}\r\n",
       "type": "registry:component"
+    },
+    {
+      "path": "registry\\alpine\\navigation\\main-nav.tsx",
+      "content": "import { Button } from \"@/registry/alpine/ui/button\"\r\nimport Link from \"next/link\"\r\n\r\nexport function MainNav() {\r\n  return (\r\n    <nav className=\"flex flex-col md:flex-row items-center gap-1\">\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/\">Home</Link>\r\n      </Button>\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/experiences\">Experiences</Link>\r\n      </Button>\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/listings\">Listings</Link>\r\n      </Button>\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/about\">About</Link>\r\n      </Button>\r\n      <Button variant=\"ghost\" size=\"sm\" asChild>\r\n        <Link href=\"/contact\">Contact</Link>\r\n      </Button>\r\n    </nav>\r\n  )\r\n}\r\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "registry\\alpine\\ui\\button.tsx",
+      "content": "import * as React from \"react\"\r\nimport { Slot as SlotPrimitive } from \"radix-ui\"\r\nimport { cva, type VariantProps } from \"class-variance-authority\"\r\n\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst buttonVariants = cva(\r\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: \"bg-primary text-primary-foreground hover:bg-primary/90\",\r\n        destructive:\r\n          \"bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60\",\r\n        outline:\r\n          \"border bg-background hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input text-foreground dark:hover:bg-input/50\",\r\n        secondary:\r\n          \"bg-secondary text-secondary-foreground hover:bg-secondary/80\",\r\n        ghost:\r\n          \"hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50\",\r\n        link: \"text-primary underline-offset-4 hover:underline\",\r\n      },\r\n      size: {\r\n        default: \"h-9 px-4 py-2 has-[>svg]:px-3\",\r\n        sm: \"h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5\",\r\n        lg: \"h-10 rounded-md px-6 has-[>svg]:px-4\",\r\n        icon: \"size-9\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n      size: \"default\",\r\n    },\r\n  }\r\n)\r\n\r\nfunction Button({\r\n  className,\r\n  variant,\r\n  size,\r\n  asChild = false,\r\n  ...props\r\n}: React.ComponentProps<\"button\"> &\r\n  VariantProps<typeof buttonVariants> & {\r\n    asChild?: boolean\r\n  }) {\r\n  const Comp = asChild ? SlotPrimitive.Slot : \"button\"\r\n\r\n  return (\r\n    <Comp\r\n      data-slot=\"button\"\r\n      className={cn(buttonVariants({ variant, size, className }))}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nexport { Button, buttonVariants }\r\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "lib\\utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n\r\nexport function getRegistryItemUrl(name: string) {\r\n  return `${process.env.NEXT_PUBLIC_BASE_URL}/r/${name}.json`\r\n}\r\n",
+      "type": "registry:lib",
+      "target": ""
     }
   ]
 }

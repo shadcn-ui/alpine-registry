@@ -5,8 +5,8 @@ import Link from "next/link"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background">
-      <div className="container flex h-16 items-center mx-auto px-4 gap-4">
+    <header className="bg-background sticky top-0 z-50 w-full border-b">
+      <div className="container mx-auto flex h-16 items-center gap-4 px-4">
         <Link href="/">
           <Logo /> <span className="sr-only">Alpine</span>
         </Link>

@@ -8,18 +8,18 @@ export function ExampleSectionWithBookingForm() {
       heading="Wishlist-worthy cabins"
       subheading="From a hillside retreat overlooking the Smokies to a storybook cottage in California’s wine country."
     >
-      <div className="flex md:gap-8 flex-col-reverse md:flex-row items-start relative">
+      <div className="relative flex flex-col-reverse items-start md:flex-row md:gap-8">
         <ListingBookingForm
           heading="Cabin Rentals"
           subheading="Spend some time in the great outdoors"
-          className="md:absolute md:w-md -mt-12 md:mt-0 md:top-12 md:left-12"
+          className="-mt-12 md:absolute md:top-12 md:left-12 md:mt-0 md:w-md"
         />
         <Image
           src="https://images.unsplash.com/photo-1634663476205-812f96a5705b"
           alt="Cabin"
           width={1200}
           height={600}
-          className="aspect-square md:aspect-[2/1] object-cover rounded-lg"
+          className="aspect-square rounded-lg object-cover md:aspect-[2/1]"
         />
       </div>
     </Section>

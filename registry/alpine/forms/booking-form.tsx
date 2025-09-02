@@ -13,7 +13,7 @@ import {
 import { Calendar } from "@/registry/alpine/ui/calendar"
 import { CalendarIcon } from "lucide-react"
 import { format } from "date-fns"
-import { DateRange } from "react-day-picker"
+import type { DateRange } from "react-day-picker"
 
 export function ListingBookingForm({
   heading,
@@ -47,7 +47,7 @@ export function ListingBookingForm({
   return (
     <form
       className={cn(
-        "shadow-lg md:shadow-2xl bg-background ring ring-border p-6 rounded-lg flex flex-col gap-4 max-w-sm",
+        "bg-background ring-border flex max-w-sm flex-col gap-4 rounded-lg p-6 shadow-lg ring md:shadow-2xl",
         className
       )}
       {...props}
@@ -73,7 +73,7 @@ export function ListingBookingForm({
               {dateDisplay}
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="p-0 w-auto overflow-hidden" align="start">
+          <PopoverContent className="w-auto overflow-hidden p-0" align="start">
             <Calendar
               mode="range"
               selected={date}

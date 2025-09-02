@@ -20,7 +20,7 @@ const getRegistryItemFromJson = React.cache((name: string) => {
 
 export default function Home() {
   return (
-    <main className="max-w-7xl mx-auto flex flex-col px-4 py-8 flex-1 gap-8 md:gap-12">
+    <main className="mx-auto flex max-w-7xl flex-1 flex-col gap-8 px-4 py-8 md:gap-12">
       {blocks.map((block) => {
         const registryItem = getRegistryItemFromJson(block.name)
         if (!registryItem) {
@@ -29,16 +29,16 @@ export default function Home() {
 
         return (
           <div key={registryItem.name} className="flex flex-col gap-4">
-            <div className="flex items-center justify-between">
+            <div className="flex min-w-0 flex-wrap items-center justify-between gap-y-2">
               <div className="flex items-center gap-2">
-                <div className="text-sm line-clamp-1 font-medium">
+                <div className="line-clamp-1 text-sm font-medium">
                   {registryItem.title}
                 </div>
                 <Separator
                   orientation="vertical"
-                  className="!h-4 hidden lg:flex"
+                  className="hidden !h-4 lg:flex"
                 />
-                <div className="text-sm text-muted-foreground line-clamp-1 hidden lg:flex">
+                <div className="text-muted-foreground line-clamp-1 hidden text-sm lg:flex">
                   {registryItem.description}
                 </div>
               </div>
@@ -47,7 +47,7 @@ export default function Home() {
                 <OpenInV0 name={registryItem.name} className="w-fit" />
               </div>
             </div>
-            <div className="flex items-center border rounded-lg justify-center min-h-[400px] p-4 md:p-10 relative bg-muted/30">
+            <div className="bg-muted/30 relative flex min-h-[400px] items-center justify-center rounded-lg border p-4 md:p-10">
               <block.component />
             </div>
           </div>

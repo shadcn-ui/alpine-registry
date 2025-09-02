@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export function MainNav() {
   return (
-    <nav className="flex flex-col md:flex-row items-center gap-1">
+    <nav className="flex flex-col items-center gap-1 md:flex-row">
       <Button variant="ghost" size="sm" asChild>
         <Link href="/">Home</Link>
       </Button>
