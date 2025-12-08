@@ -6,5 +6,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getRegistryItemUrl(name: string) {
-  return `${process.env.NEXT_PUBLIC_BASE_URL}/r/${name}.json`
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+  return `${baseUrl}/r/${name}.json`
 }

@@ -103,7 +103,8 @@ export function RegistrySetup({
   )
 }
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
 const registrySetupCode = `"registries": {
-  "@alpine": "${process.env.NEXT_PUBLIC_BASE_URL}/r/{name}.json"
+  "@alpine": "${baseUrl}/r/{name}.json"
 }
 `
