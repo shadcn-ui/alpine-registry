@@ -67,7 +67,7 @@ export function RegistrySetup({
           Copy and paste the code into{" "}
           <code className="font-mono text-foreground">components.json</code>
         </div>
-        <div className="relative">
+        <div className="relative min-w-0">
           <Button
             variant="outline"
             size="icon"
